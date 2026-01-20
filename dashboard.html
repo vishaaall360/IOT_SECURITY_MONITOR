@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IoT Security Monitor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h1>🌐 IoT Security Monitoring Dashboard</h1>
+
+  <div class="card">
+    <h2>Sensor Data</h2>
+    <p>Motion: {{ data.motion }}</p>
+    <p>Temperature: {{ data.temperature }} °C</p>
+    <p>Gas Level: {{ data.gas }}</p>
+  </div>
+
+  <div class="card alert">
+    <h2>Alerts</h2>
+    {% if alerts %}
+      {% for alert in alerts %}
+        <p>{{ alert }}</p>
+      {% endfor %}
+    {% else %}
+      <p>No threats detected</p>
+    {% endif %}
+  </div>
+</div>
+
+</body>
+</html>
